@@ -1,0 +1,24 @@
+# Xcode
+#
+## build Products
+build/
+DerivedData/
+
+## Swift Package Manager
+.swiftpm/
+Packages/
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# User-specific
+*.xcuserdatad/
+*.xcschemes/
+*.xcworkspace
+
+# Pods - If you use CocoaPods
+Pods/
+
+# Carthage - If you use Carthage
+Carthage/
+
+# Secrets
+*.env
