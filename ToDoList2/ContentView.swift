@@ -80,6 +80,7 @@ struct ContentView: View {
         withAnimation {
             for index in offset {
                 let item = filterItems[index]
+                NotificationManager.shared.cacelNotification(for: item)
                 self.modelContext.delete(item)
             }
         }
@@ -89,6 +90,7 @@ struct ContentView: View {
         let selectionItems = items.filter { selection.contains($0.id)
         }
         for i in selectionItems {
+            NotificationManager.shared.cacelNotification(for: i)
             self.modelContext.delete(i)
         }
     }
@@ -129,6 +131,11 @@ struct SingleCardView: View {
                 .onTapGesture {
                     withAnimation {
                         item.isCheck.toggle()
+                    }
+                    if item.isCheck{
+                        NotificationManager.shared.cacelNotification(for: item)
+                    } else {
+                        NotificationManager.shared.scheduleNotification(for: item)
                     }
                 }
             

@@ -67,11 +67,14 @@ struct EditPageView: View {
         withAnimation {
             //编辑模式
             if let itemToEdit {
+                NotificationManager.shared.cacelNotification(for: itemToEdit)
                 itemToEdit.title = self.title
                 itemToEdit.dueDate = self.dueDate
+                NotificationManager.shared.scheduleNotification(for: itemToEdit)
             } else {
                 let newItem = Item(title: title, dueDate: dueDate, isCheck: false)
                 modelContext.insert(newItem)
+                NotificationManager.shared.scheduleNotification(for: newItem)
             }
         }
     }

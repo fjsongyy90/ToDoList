@@ -22,6 +22,9 @@ struct ToDoList2App: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    init(){
+        NotificationManager.shared.requestAuthorization()
+    }
 
     var body: some Scene {
         WindowGroup {
